@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const stats = [
   { value: '10,000+', label: 'Families Served' },
-  { value: '1', label: 'Country Active (Togo)' },
+  { value: '7', label: 'Countries by 2030 (Goal)' },
   { value: '14', label: 'Languages' },
   { value: '500+', label: 'Partner Clinics' },
 ]
@@ -37,7 +37,7 @@ const missionPillars = [
       </svg>
     ),
     title: 'Our Impact',
-    text: 'Over 10,000 consultations delivered through Klinova\'s grid since launch in 2026. Currently active in Togo, with Ghana and Benin expansion underway. 14 language channels serving rural, refugee, and urban-poor populations.',
+    text: 'Launched in 2026 in Togo. Targeting 7 countries by 2030. Over 10,000 consultations delivered through Klinova\'s grid, in 14 languages, serving rural, refugee, and urban-poor populations.',
   },
 ]
 
@@ -82,7 +82,7 @@ const programs = [
 
 const impactNumbers = [
   { value: '10,247+', label: 'Patients Reached' },
-  { value: '1', label: 'Country Active (Togo)' },
+  { value: '7', label: 'Countries by 2030 (Goal)' },
   { value: '14', label: 'Languages Supported' },
   { value: '500+', label: 'Partner Clinics' },
 ]
