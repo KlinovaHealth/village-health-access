@@ -74,7 +74,7 @@ export default function ProgramsPage() {
               {[
                 { value: '14', label: 'Languages Supported', sub: 'Including Ewe, Hausa, Yoruba, Twi, Moore' },
                 { value: '10,247+', label: 'Consultations Completed', sub: 'Since program launch in 2024' },
-                { value: '7', label: 'Countries Active', sub: 'With expansion underway in 2026' },
+                { value: '1', label: 'Country Active', sub: 'Togo — expanding to Ghana and Benin' },
               ].map(({ value, label, sub }) => (
                 <div
                   key={label}
