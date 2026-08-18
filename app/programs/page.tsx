@@ -73,7 +73,7 @@ export default function ProgramsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
                 { value: '14', label: 'Languages Supported', sub: 'Including Ewe, Hausa, Yoruba, Twi, Moore' },
-                { value: '10,247+', label: 'Consultations Completed', sub: 'Since program launch in 2024' },
+                { value: '10,247+', label: 'Consultations Completed', sub: 'Since program launch in 2026' },
                 { value: '1', label: 'Country Active', sub: 'Togo — expanding to Ghana and Benin' },
               ].map(({ value, label, sub }) => (
                 <div
