@@ -64,7 +64,7 @@ export default function ProgramsPage() {
                 For orphans, refugees, rural subsistence farmers, and the urban poor, a clinic visit isn&#39;t just inconvenient; it&#39;s economically catastrophic or physically impossible. Village Health Access delivers free and subsidized virtual consultations that meet patients where they are, significantly improving access to essential healthcare services.
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, marginBottom: '1rem', fontSize: '0.97rem' }}>
-                All services are delivered through <strong style={{ color: '#15302A' }}>Klinova&#39;s Invisible Grid</strong> — a WhatsApp-based care coordination system built for low-connectivity environments. Patients connect with a community health worker who performs structured multilingual triage, with quick escalation to licensed clinicians for diagnosis, treatment, and integrated follow-up.
+                All services are delivered through <strong style={{ color: '#15302A' }}>Klinova&#39;s Invisible Grid</strong>, an app and WhatsApp-based care coordination system built for low-connectivity environments. Patients connect with a community health worker who performs structured multilingual triage, with quick escalation to licensed clinicians for diagnosis, treatment, and integrated follow-up.
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.97rem' }}>
                 Our translation network covers 14 languages, including French, English, Ewe, Hausa, Yoruba, Twi, Moore, Bambara, and local dialects, ensuring language is never a barrier to care and that every patient feels respected and understood.
