@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 const stats = [
-  { value: '10,000+', label: 'Families Served' },
-  { value: '7', label: 'Countries by 2030 (Goal)' },
-  { value: '14', label: 'Languages' },
-  { value: '500+', label: 'Partner Clinics' },
+  { value: '10,000+', label: 'Families to Reach (Target)' },
+  { value: '7', label: 'Countries by 2030' },
+  { value: '14', label: 'Languages Planned' },
+  { value: '500+', label: 'Clinics (Target)' },
 ]
 
 const missionPillars = [
@@ -16,7 +16,7 @@ const missionPillars = [
       </svg>
     ),
     title: 'Our Mission',
-    text: 'Deliver free, high-quality telemedicine and essential medicines to the most underserved communities in West Africa — regardless of income, location, or language.',
+    text: 'To deliver free, high-quality telemedicine and essential medicines to the most underserved communities in West Africa — regardless of income, location, or language.',
   },
   {
     icon: (
@@ -36,8 +36,8 @@ const missionPillars = [
         <path d="M10 24l5-8 5 5 4-9" stroke="#0E6B4F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    title: 'Our Impact',
-    text: 'Launched in 2026 in Togo. Targeting 7 countries by 2030. Over 10,000 consultations delivered through Klinova\'s grid, in 14 languages, serving rural, refugee, and urban-poor populations.',
+    title: 'Our Goal',
+    text: 'Launched in Togo in 2026, we aim to reach 10,000+ families across 7 countries by 2030 — delivering care in 14 languages through Klinova\'s Invisible Grid to rural, refugee, and urban-poor populations.',
   },
 ]
 
@@ -96,27 +96,27 @@ const programs = [
 ]
 
 const impactNumbers = [
-  { value: '10,247+', label: 'Patients Reached' },
-  { value: '7', label: 'Countries by 2030 (Goal)' },
-  { value: '14', label: 'Languages Supported' },
-  { value: '500+', label: 'Partner Clinics' },
+  { value: '10,000+', label: 'Families to Reach (Target)' },
+  { value: '7', label: 'Countries by 2030' },
+  { value: '14', label: 'Languages (Planned)' },
+  { value: '500+', label: 'Partner Clinics (Target)' },
 ]
 
 const newsItems = [
   {
+    date: 'August 2026',
+    title: 'WHO Calls for Urgent Scale-Up of Cholera Vaccines Across West Africa',
+    excerpt: 'The World Health Organization has issued an emergency call to action as cholera cases surge across Togo, Benin, and Nigeria, urging governments and NGOs to accelerate oral vaccine distribution in high-risk communities.',
+  },
+  {
     date: 'July 2026',
-    title: 'Klinova Expands WhatsApp Triage to 3 New Countries',
-    excerpt: 'Village Health Access and Klinova have launched multilingual triage channels in Burkina Faso, Senegal, and Côte d\'Ivoire, adding more than 2 million people to the reachable population.',
+    title: 'Togo Launches National Community Health Worker Program',
+    excerpt: 'The Togo Ministry of Health has formalized a national framework for community health workers, opening pathways for NGOs and digital health platforms to integrate with the public health system.',
   },
   {
-    date: 'May 2026',
-    title: 'Partnership with Togo Ministry of Health Formalized',
-    excerpt: 'A landmark memorandum of understanding enables direct referral pathways between our virtual clinicians and Togo\'s public health infrastructure.',
-  },
-  {
-    date: 'March 2026',
-    title: 'Essential Medicines Program Reaches 12,000 Deliveries',
-    excerpt: 'Our pharmacy coordination network passed a major milestone — 12,000 medicine packages delivered to patients who would otherwise have had no access to treatment.',
+    date: 'June 2026',
+    title: 'Telemedicine Adoption Rising Across Francophone Africa',
+    excerpt: 'A new ECOWAS health report shows a 340% increase in WhatsApp-based health consultations across the region since 2024, driven by low-connectivity innovation and multilingual mobile health tools.',
   },
 ]
 
@@ -163,7 +163,7 @@ export default function HomePage() {
             Healthcare for every village.
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: 'clamp(1rem, 2vw, 1.25rem)', maxWidth: '50ch', lineHeight: 1.7, marginBottom: '2.5rem' }}>
-            Delivering free telemedicine and essential medicines to the most underserved communities in West Africa — powered by Klinova&#39;s Invisible Grid, in their language, on their terms.
+            Delivering free telemedicine and essential medicines to the most underserved communities in West Africa, powered by Klinova&#39;s Invisible Grid, in their language, on their terms.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '3.5rem' }}>
             <Link

@@ -3,63 +3,66 @@
 import { useState } from 'react'
 
 const featuredPost = {
-  category: 'Health Tech',
-  date: 'July 14, 2026',
-  title: 'Klinova Expands WhatsApp Triage to 3 New Countries',
+  category: 'Outbreak Alert',
+  date: 'August 10, 2026',
+  title: 'WHO Declares Cholera a Continuing Public Health Emergency Across West Africa',
   excerpt:
-    'Village Health Access and Klinova have launched multilingual triage channels in Burkina Faso, Senegal, and Côte d\'Ivoire. The expansion adds more than 2 million people to the reachable population, with support for Moore, Wolof, and Dioula languages.',
-  author: 'VHA Communications Team',
+    'The World Health Organization has renewed its emergency declaration as cholera cases surge in Togo, Benin, Ghana, and Nigeria. Health authorities are calling for an immediate scale-up of oral rehydration therapy, clean water infrastructure, and last-mile vaccine delivery — particularly in rural and refugee-adjacent communities with no fixed health facility.',
+  author: 'WHO Regional Office for Africa',
 }
 
 const posts = [
   {
-    category: 'Community',
-    date: 'June 30, 2026',
-    title: 'Meet the Community Health Workers Behind Our Reach',
-    excerpt: 'In rural Togo, a team of 40 community health workers bridges the gap between patients and clinicians — often walking miles to deliver medicines and referrals.',
-    author: 'Donald Daglo',
+    category: 'Vaccines',
+    date: 'August 5, 2026',
+    title: 'Togo Launches National Cholera Vaccination Drive in Rural Districts',
+    excerpt: 'The Togo Ministry of Health has begun a targeted oral cholera vaccine campaign in the Savanes and Kara regions, where sanitation infrastructure remains critically underdeveloped.',
+    author: 'Togo Ministry of Health',
   },
   {
     category: 'Policy',
-    date: 'June 12, 2026',
-    title: 'Memorandum of Understanding Signed with Togo Ministry of Health',
-    excerpt: 'A landmark agreement formalizes our collaboration with Togo\'s national health system, enabling direct referrals, data sharing, and co-training of community health workers.',
-    author: 'VHA Policy Team',
+    date: 'July 28, 2026',
+    title: 'ECOWAS Adopts Cross-Border Telemedicine Framework for Member States',
+    excerpt: 'The Economic Community of West African States has agreed to a shared telemedicine regulatory framework, reducing legal barriers for cross-border digital health consultations across 15 member nations.',
+    author: 'ECOWAS Health Division',
   },
   {
     category: 'Health Tech',
-    date: 'May 28, 2026',
-    title: 'How We Built a Multilingual Triage Protocol for 14 Languages',
-    excerpt: 'Building a healthcare triage system that works across French, English, Ewe, Hausa, Yoruba, and Twi required rethinking how clinical protocols are localized. Here\'s how we did it.',
-    author: 'VHA Clinical Team',
+    date: 'July 14, 2026',
+    title: 'WhatsApp-Based Health Triage Sees 340% Growth Across Francophone Africa',
+    excerpt: 'A new ECOWAS report documents rapid adoption of WhatsApp health triage tools across Togo, Senegal, Mali, and Côte d\'Ivoire, driven by low-cost smartphones and expanding mobile coverage in rural zones.',
+    author: 'ECOWAS Digital Health Report',
   },
   {
-    category: 'Community',
-    date: 'May 10, 2026',
-    title: 'Essential Medicines Program Reaches 12,000 Deliveries',
-    excerpt: 'Our pharmacy coordination network passed a major milestone — 12,000 medicine packages delivered to patients who would otherwise have had no access to treatment.',
-    author: 'VHA Operations Team',
+    category: 'Disease',
+    date: 'June 20, 2026',
+    title: 'Meningitis Outbreak Reported in Northern Ghana — Vaccination Teams Deployed',
+    excerpt: 'Ghana Health Service has activated emergency response teams following a meningitis outbreak in the Upper West Region. Vaccination corridors are being established to cover nomadic and border-crossing populations.',
+    author: 'Ghana Health Service',
   },
   {
     category: 'Policy',
-    date: 'April 22, 2026',
-    title: 'What West Africa\'s Telemedicine Regulation Landscape Means for VHA',
-    excerpt: 'Telemedicine regulation varies widely across our 7 countries of operation. This post summarizes the current landscape and how VHA navigates cross-border clinical delivery.',
-    author: 'VHA Legal & Policy',
+    date: 'June 3, 2026',
+    title: 'Benin Invites NGOs to Join Expanded Community Health Worker Program',
+    excerpt: 'The Benin Ministry of Health is opening its national community health worker registry to accredited NGOs and digital health platforms, creating formal integration points for telemedicine referrals.',
+    author: 'Benin Ministry of Health',
   },
   {
     category: 'Health Tech',
-    date: 'March 15, 2026',
-    title: 'Designing Offline-First Healthcare Workflows for Low-Connectivity Environments',
-    excerpt: 'Most healthcare technology assumes a stable internet connection. Our field teams operate where connectivity is measured in minutes per day. Here\'s our approach.',
-    author: 'VHA Technology Team',
+    date: 'May 18, 2026',
+    title: 'Multilingual AI Triage Tools Show Promise in Low-Literacy West African Populations',
+    excerpt: 'A study published in The Lancet Digital Health found that voice-based multilingual triage in Ewe, Hausa, and Twi achieved 91% accuracy in identifying urgent cases — even among patients with no formal education.',
+    author: 'The Lancet Digital Health',
   },
 ]
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
-  'Health Tech': { bg: '#E3EFE8', text: '#0A5440' },
-  'Community': { bg: '#F5EFE3', text: '#15302A' },
-  'Policy': { bg: '#15302A', text: '#F5EFE3' },
+  'Health Tech':    { bg: '#E3EFE8', text: '#0A5440' },
+  'Community':      { bg: '#F5EFE3', text: '#15302A' },
+  'Policy':         { bg: '#15302A', text: '#F5EFE3' },
+  'Outbreak Alert': { bg: '#CF5A3C', text: '#ffffff' },
+  'Vaccines':       { bg: '#D99A2B', text: '#15302A' },
+  'Disease':        { bg: '#6E7F76', text: '#ffffff' },
 }
 
 export default function BlogPage() {
@@ -86,7 +89,7 @@ export default function BlogPage() {
             News &amp; Updates
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: '1.1rem', maxWidth: '52ch', lineHeight: 1.75 }}>
-            Stories from the field, program milestones, policy developments, and the technology behind our mission.
+            Regional health news, disease alerts, policy developments, and technology shaping healthcare access across West Africa.
           </p>
         </div>
       </section>
