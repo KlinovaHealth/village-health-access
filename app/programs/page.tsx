@@ -61,13 +61,13 @@ export default function ProgramsPage() {
                 Telemedicine Access
               </h2>
               <p style={{ color: '#15302A', lineHeight: 1.8, marginBottom: '1rem', fontSize: '0.97rem' }}>
-                For orphans, refugees, rural subsistence farmers, and the urban poor, a clinic visit isn&#39;t just inconvenient — it&#39;s economically catastrophic or physically impossible. Village Health Access delivers free and subsidized virtual consultations that meet patients where they are.
+                For orphans, refugees, rural subsistence farmers, and the urban poor, a clinic visit isn&#39;t just inconvenient; it&#39;s economically catastrophic or physically impossible. Village Health Access delivers free and subsidized virtual consultations that meet patients where they are, significantly improving access to essential healthcare services.
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, marginBottom: '1rem', fontSize: '0.97rem' }}>
-                Patients connect via WhatsApp with a community health worker, who performs a structured triage using our multilingual protocol. Cases are escalated to licensed clinicians for diagnosis and treatment. Follow-up is built into every case, ensuring continuity of care even in low-connectivity environments.
+                Patients connect via WhatsApp with a community health worker, who performs a structured triage using our multilingual protocol. This streamlined process ensures quick escalation to licensed clinicians for diagnosis and treatment, with follow-up integrated to maintain continuity of care even in low-connectivity environments.
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.97rem' }}>
-                Our translation network covers 14 languages including French, English, Ewe, Hausa, Yoruba, Twi, Moore, Bambara, and local dialects — ensuring that language is never a barrier to care.
+                Our translation network covers 14 languages, including French, English, Ewe, Hausa, Yoruba, Twi, Moore, Bambara, and local dialects, ensuring language is never a barrier to care and that every patient feels respected and understood.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
