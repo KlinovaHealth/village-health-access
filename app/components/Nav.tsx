@@ -58,7 +58,7 @@ export default function Nav() {
       >
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
-          <LeafSvg />
+          <LogoMark />
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <span
               style={{
@@ -197,21 +197,24 @@ export default function Nav() {
   )
 }
 
-function LeafSvg() {
+function LogoMark() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <circle cx="14" cy="14" r="14" fill="#0A5440" />
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+      <rect width="36" height="36" rx="10" fill="#0A5440" />
+      {/* Heart shape */}
       <path
-        d="M14 7C10.5 7 7.5 10 7.5 14C7.5 18 10.5 21 14 21C17.5 21 20.5 18 20.5 14C20.5 10 17.5 7 14 7Z"
-        fill="#E3EFE8"
+        d="M18 26s-9-5.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-9 11-9 11z"
+        fill="#D99A2B"
+        opacity="0.9"
       />
+      {/* Pulse line across heart */}
       <path
-        d="M14 9.5C11.5 10.5 10 12.5 10 14.5C10 16.5 11.5 18.5 14 19.5"
-        stroke="#0A5440"
-        strokeWidth="1.5"
+        d="M9 18h3.5l1.5-3 2 5 1.5-2.5 1 1.5H27"
+        stroke="#F5EFE3"
+        strokeWidth="1.6"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <line x1="14" y1="10" x2="14" y2="20" stroke="#0E6B4F" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   )
 }
