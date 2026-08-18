@@ -99,7 +99,7 @@ export default function PartnersPage() {
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>Platinum — Hoped-for Sponsors</h2>
             </div>
             <p style={{ color: '#6E7F76', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              Global institutions whose mission aligns with ours. These are our top outreach targets for major institutional partnership.
+              Global institutions aligned with our mission, shown as aspirational targets — with active conversations underway.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {platinumTargets.map((p) => (
