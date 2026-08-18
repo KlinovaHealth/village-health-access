@@ -59,16 +59,30 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
           <LeafSvg />
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 700,
-              fontSize: '1.1rem',
-              color: '#0A5440',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Village Health Access
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                color: '#0A5440',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Klinova
+            </span>
+            <span style={{ color: '#D99A2B', fontSize: '1rem', fontWeight: 700, lineHeight: 1 }}>&#10084;</span>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                color: '#0A5440',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Village Health Access
+            </span>
           </span>
         </Link>
 
