@@ -1,22 +1,22 @@
 import Link from 'next/link'
 
 const keyStats = [
-  { value: '10,247+', label: 'Consultations', sub: 'Since program launch in 2024' },
-  { value: '7', label: 'Countries', sub: 'Togo, Ghana, Benin, Nigeria, Burkina Faso, Côte d\'Ivoire, Senegal' },
-  { value: '14', label: 'Languages', sub: 'Including Ewe, Hausa, Yoruba, Twi, Moore, Bambara' },
-  { value: '500+', label: 'Partner Clinics', sub: 'Licensed clinics and pharmacy network' },
-  { value: '12,000+', label: 'Medicines Distributed', sub: 'WHO-prequalified essential medicines' },
-  { value: '3,200+', label: 'Families Reached', sub: 'With ongoing care relationships' },
+  { value: '10,000+', label: 'Consultations (Target)', sub: 'Goal since program launch in 2026' },
+  { value: '7', label: 'Countries by 2030', sub: 'Currently active in Togo, expanding to Ghana and Benin' },
+  { value: '14', label: 'Languages (Planned)', sub: 'Including Ewe, Hausa, Yoruba, Twi, Moore, Bambara' },
+  { value: '500+', label: 'Partner Clinics (Target)', sub: 'Licensed clinics and pharmacy network' },
+  { value: '12,000+', label: 'Medicines (Target)', sub: 'WHO-prequalified essential medicines' },
+  { value: '3,200+', label: 'Families (Target)', sub: 'With ongoing care relationships' },
 ]
 
 const countries = [
-  { name: 'Togo', pct: 100, note: 'Primary country — MOU with Ministry of Health' },
-  { name: 'Ghana', pct: 78, note: 'Active telemedicine + pharmacy network' },
-  { name: 'Benin', pct: 62, note: 'Expanding clinic partnerships' },
-  { name: 'Nigeria', pct: 48, note: 'Urban and semi-rural outreach' },
-  { name: 'Burkina Faso', pct: 35, note: 'Refugee population focus' },
-  { name: 'Côte d\'Ivoire', pct: 28, note: 'New 2026 expansion' },
-  { name: 'Senegal', pct: 22, note: 'New 2026 expansion' },
+  { name: 'Togo', pct: 100, note: 'Active now — primary country of operations, launched 2026' },
+  { name: 'Ghana', pct: 60, note: 'Planned expansion, conversations with Ghana Health Service underway' },
+  { name: 'Benin', pct: 40, note: 'Planned expansion, outreach to Ministry of Health in progress' },
+  { name: 'Nigeria', pct: 25, note: 'Future target, urban and semi-rural outreach planned' },
+  { name: 'Burkina Faso', pct: 20, note: 'Future target, refugee population focus' },
+  { name: 'Côte d\'Ivoire', pct: 15, note: 'Future target, 2028 expansion roadmap' },
+  { name: 'Senegal', pct: 10, note: 'Future target, 2029 expansion roadmap' },
 ]
 
 const diseaseCategories = [
@@ -80,7 +80,7 @@ export default function ImpactPage() {
             Country Coverage
           </h2>
           <p style={{ color: '#6E7F76', fontSize: '0.95rem', marginBottom: '2.5rem' }}>
-            Coverage index relative to our most established country (Togo = 100%).
+            Expansion roadmap relative to Togo (our active country). All others are planned targets, not current operations.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxWidth: '54rem' }}>
             {countries.map(({ name, pct, note }) => (
@@ -166,7 +166,7 @@ export default function ImpactPage() {
         <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', color: '#F5EFE3', marginBottom: '0.5rem' }}>
-              2025 Annual Report
+              2026 Annual Report
             </h2>
             <p style={{ color: '#E3EFE8', fontSize: '0.95rem', lineHeight: 1.6 }}>
               Full program data, financial summary, and year-in-review for our inaugural year of operations.

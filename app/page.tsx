@@ -116,7 +116,7 @@ const newsItems = [
   {
     date: 'June 2026',
     title: 'Telemedicine Adoption Rising Across Francophone Africa',
-    excerpt: 'A new ECOWAS health report shows a 340% increase in WhatsApp-based health consultations across the region since 2024, driven by low-connectivity innovation and multilingual mobile health tools.',
+    excerpt: 'A new ECOWAS health report shows a 340% increase in WhatsApp-based health consultations across the region since 2026, driven by low-connectivity innovation and multilingual mobile health tools.',
   },
 ]
 
