@@ -122,7 +122,7 @@ export default function AboutPage() {
                 <path d="M32 16C22 16 14 24 14 32C14 40 22 48 32 48C42 48 50 40 50 32C50 24 42 16 32 16Z" fill="rgba(255,255,255,0.15)" />
                 <line x1="32" y1="18" x2="32" y2="46" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              <p style={{ color: 'rgba(245,239,227,0.7)', fontSize: '0.85rem', marginTop: '1rem', fontStyle: 'italic' }}>West Africa · 2024–present</p>
+              <p style={{ color: 'rgba(245,239,227,0.7)', fontSize: '0.85rem', marginTop: '1rem', fontStyle: 'italic' }}>West Africa · 2026–present</p>
             </div>
           </div>
         </div>
@@ -245,10 +245,10 @@ export default function AboutPage() {
                 Our relationship with Klinova
               </h2>
               <p style={{ color: '#E3EFE8', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1rem' }}>
-                Village Health Access is a separate legal nonprofit entity from Klinova, the for-profit telemedicine platform. Klinova provides technology infrastructure, clinical network access, and operational support as an in-kind partner to VHA&#39;s humanitarian programs.
+                Village Health Access is the humanitarian arm of Klinova — a separate nonprofit entity that uses Klinova&#39;s Invisible Grid to deliver free and subsidized care. The Invisible Grid is Klinova&#39;s WhatsApp-based multilingual triage and care coordination system, built to reach patients in remote, low-connectivity environments across West Africa.
               </p>
-              <p style={{ color: '#6E7F76', fontSize: '0.9rem', lineHeight: 1.75 }}>
-                This structure ensures that VHA&#39;s humanitarian mission remains independent, donor-funded, and free from commercial pressures — while benefiting from Klinova&#39;s established healthcare platform.
+              <p style={{ color: 'rgba(227,239,232,0.75)', fontSize: '0.9rem', lineHeight: 1.75 }}>
+                By running on Klinova&#39;s infrastructure, VHA can operate at low cost while maintaining clinical-grade care standards. This structure ensures the humanitarian mission stays independent, donor-funded, and free from commercial pressure — while benefiting from an already-deployed, proven platform.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'flex-start' }}>

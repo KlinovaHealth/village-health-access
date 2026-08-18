@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const stats = [
   { value: '10,000+', label: 'Families Served' },
-  { value: '7', label: 'Countries' },
+  { value: '1', label: 'Country Active (Togo)' },
   { value: '14', label: 'Languages' },
   { value: '500+', label: 'Partner Clinics' },
 ]
@@ -27,7 +27,7 @@ const missionPillars = [
       </svg>
     ),
     title: 'How It Works',
-    text: 'Patients connect via WhatsApp or community health workers. Multilingual triage routes each case to a licensed clinician. Prescribed medicines are delivered by our pharmacy network.',
+    text: 'Powered by Klinova\'s Invisible Grid, patients connect via WhatsApp in their own language. Our multilingual triage protocol routes each case to a licensed clinician — with medicine delivery coordinated through our pharmacy network.',
   },
   {
     icon: (
@@ -37,7 +37,7 @@ const missionPillars = [
       </svg>
     ),
     title: 'Our Impact',
-    text: 'More than 10,000 consultations completed. Active in 7 countries with 14 language channels. Partnered with over 500 clinics and pharmacies serving rural and refugee populations.',
+    text: 'Over 10,000 consultations delivered through Klinova\'s grid since launch in 2026. Currently active in Togo, with Ghana and Benin expansion underway. 14 language channels serving rural, refugee, and urban-poor populations.',
   },
 ]
 
@@ -50,7 +50,7 @@ const programs = [
       </svg>
     ),
     title: 'Telemedicine Access',
-    desc: 'Free and subsidized virtual consultations for orphans, refugees, and rural communities. Available in 14 languages via WhatsApp and community health stations.',
+    desc: 'Free and subsidized virtual consultations for orphans, refugees, and rural communities — delivered through Klinova\'s Invisible Grid via WhatsApp, in 14 languages.',
     href: '/programs#telemedicine',
   },
   {
@@ -82,7 +82,7 @@ const programs = [
 
 const impactNumbers = [
   { value: '10,247+', label: 'Patients Reached' },
-  { value: '7', label: 'Countries Active' },
+  { value: '1', label: 'Country Active (Togo)' },
   { value: '14', label: 'Languages Supported' },
   { value: '500+', label: 'Partner Clinics' },
 ]
@@ -148,7 +148,7 @@ export default function HomePage() {
             Healthcare for every village.
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: 'clamp(1rem, 2vw, 1.25rem)', maxWidth: '50ch', lineHeight: 1.7, marginBottom: '2.5rem' }}>
-            Free telemedicine and essential medicine delivery to underserved communities across West Africa — in their language, on their terms.
+            Delivering free telemedicine and essential medicines to the most underserved communities in West Africa — powered by Klinova&#39;s Invisible Grid, in their language, on their terms.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '3.5rem' }}>
             <Link
