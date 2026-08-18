@@ -1,3 +1,8 @@
+'use client'
+
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
+
 const platinumTargets = [
   { initials: 'WHO', name: 'World Health Organization', type: 'Global Health' },
   { initials: 'GF', name: 'Gates Foundation', type: 'Philanthropy' },
@@ -58,24 +63,27 @@ function PartnerCard({ initials, name, type }: { initials: string; name: string;
 }
 
 export default function PartnersPage() {
+  const { lang } = useLanguage()
+  const t = translations[lang].partners
+
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
+      {/* Hero */}
       <section style={{ background: '#0A5440', padding: '5rem 1.5rem 4rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-            Building our network
+            {t.eyebrow}
           </p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 5vw, 3.75rem)', color: '#F5EFE3', lineHeight: 1.1, maxWidth: '22ch', marginBottom: '1.25rem' }}>
-            Partners We&#39;re Building Toward
+            {t.heroTitle}
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: '1.1rem', maxWidth: '52ch', lineHeight: 1.75 }}>
-            Village Health Access launched in 2026 with operations in Togo. The organizations listed below represent the partners and sponsors we are actively pursuing as we scale across West Africa.
+            {t.heroDesc}
           </p>
         </div>
       </section>
 
-      {/* ── Aspirational notice ─────────────────────────────── */}
+      {/* Aspirational notice */}
       <div style={{ background: '#D99A2B', padding: '1rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <svg width="18" height="18" fill="none" viewBox="0 0 18 18" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -83,12 +91,12 @@ export default function PartnersPage() {
             <path d="M9 5v4M9 12v.5" stroke="#15302A" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
           <p style={{ color: '#15302A', fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>
-            All organizations listed are <strong>upcoming sponsorship targets</strong> — not current partners. We are actively reaching out and building these relationships.
+            {t.noticeBanner}
           </p>
         </div>
       </div>
 
-      {/* ── Partner Tiers ────────────────────────────────────── */}
+      {/* Partner Tiers */}
       <section style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
 
@@ -96,10 +104,10 @@ export default function PartnersPage() {
           <div style={{ marginBottom: '4rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
               <div style={{ width: '1rem', height: '1rem', borderRadius: '50%', background: '#D99A2B' }} />
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>Platinum — Hoped-for Sponsors</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>{t.platinumTitle}</h2>
             </div>
             <p style={{ color: '#6E7F76', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              Global institutions aligned with our mission, shown as aspirational targets — with active conversations underway.
+              {t.platinumDesc}
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {platinumTargets.map((p) => (
@@ -112,10 +120,10 @@ export default function PartnersPage() {
           <div style={{ marginBottom: '4rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
               <div style={{ width: '1rem', height: '1rem', borderRadius: '50%', background: '#D99A2B', opacity: 0.7 }} />
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>Gold — Government Targets</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>{t.goldTitle}</h2>
             </div>
             <p style={{ color: '#6E7F76', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              Health ministries in our target expansion countries. We are seeking formal memoranda of understanding as we grow into these markets.
+              {t.goldDesc}
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {goldTargets.map((p) => (
@@ -128,10 +136,10 @@ export default function PartnersPage() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
               <div style={{ width: '1rem', height: '1rem', borderRadius: '50%', background: '#6E7F76' }} />
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>Silver — NGO Targets</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: '#15302A', margin: 0 }}>{t.silverTitle}</h2>
             </div>
             <p style={{ color: '#6E7F76', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              NGOs and civil society organizations we hope to collaborate with to reach overlapping beneficiary populations.
+              {t.silverDesc}
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {silverTargets.map((p) => (
@@ -142,20 +150,20 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ── Partner CTA form ─────────────────────────────────── */}
+      {/* Partner CTA form */}
       <section style={{ background: '#ffffff', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'start' }}>
             <div>
-              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Join the network</p>
+              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.joinEyebrow}</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '1.25rem' }}>
-                Become a Partner
+                {t.joinTitle}
               </h2>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '1rem' }}>
-                We welcome applications from licensed clinics, pharmacies, NGOs, community health organizations, and government health agencies across West Africa.
+                {t.joinP1}
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem' }}>
-                Partners gain access to Klinova&#39;s Invisible Grid referral network, medicine supply coordination, training resources, and community health worker support.
+                {t.joinP2}
               </p>
             </div>
             <form
@@ -164,9 +172,9 @@ export default function PartnersPage() {
               style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
             >
               {[
-                { label: 'Organization Name', name: 'org', type: 'text', placeholder: 'Name of your organization' },
-                { label: 'Country', name: 'country', type: 'text', placeholder: 'e.g. Togo, Ghana, Nigeria' },
-                { label: 'Contact Email', name: 'email', type: 'email', placeholder: 'contact@yourorg.org' },
+                { label: t.formOrgLabel, name: 'org', type: 'text', placeholder: t.formOrgPlaceholder },
+                { label: t.formCountryLabel, name: 'country', type: 'text', placeholder: t.formCountryPlaceholder },
+                { label: t.formEmailLabel, name: 'email', type: 'email', placeholder: t.formEmailPlaceholder },
               ].map(({ label, name, type, placeholder }) => (
                 <div key={name}>
                   <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>
@@ -192,7 +200,7 @@ export default function PartnersPage() {
               ))}
               <div>
                 <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>
-                  Type of Partnership
+                  {t.formTypeLabel}
                 </label>
                 <select
                   name="type"
@@ -208,13 +216,10 @@ export default function PartnersPage() {
                     fontFamily: 'var(--font-sans)',
                   }}
                 >
-                  <option value="">Select a type</option>
-                  <option>Clinic / Healthcare Facility</option>
-                  <option>Pharmacy / Medicine Distributor</option>
-                  <option>NGO / Civil Society</option>
-                  <option>Government Health Agency</option>
-                  <option>Community Health Worker Program</option>
-                  <option>Other</option>
+                  <option value="">{t.formTypeDefault}</option>
+                  {t.formTypeOptions.map((opt) => (
+                    <option key={opt}>{opt}</option>
+                  ))}
                 </select>
               </div>
               <button
@@ -231,7 +236,7 @@ export default function PartnersPage() {
                   fontFamily: 'var(--font-sans)',
                 }}
               >
-                Submit Partnership Request
+                {t.formSubmit}
               </button>
             </form>
           </div>

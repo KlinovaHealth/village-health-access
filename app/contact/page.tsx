@@ -1,29 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-
-const contactCards = [
-  {
-    label: 'General Inquiries',
-    email: 'contact@villagehealthaccess.org',
-    desc: 'Questions about our programs, mission, or how to get involved.',
-  },
-  {
-    label: 'Partnership',
-    email: 'partners@villagehealthaccess.org',
-    desc: 'Clinic, pharmacy, NGO, and government partnership requests.',
-  },
-  {
-    label: 'Media',
-    email: 'media@villagehealthaccess.org',
-    desc: 'Press inquiries, interview requests, and media resources.',
-  },
-]
-
-const subjectOptions = ['General', 'Partnership', 'Donation', 'Media', 'Other']
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', subject: 'General', message: '' })
+  const { lang } = useLanguage()
+  const t = translations[lang].contact
+
+  const [form, setForm] = useState({ name: '', email: '', subject: t.subjectOptions[0], message: '' })
   const [sent, setSent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -51,30 +36,30 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
+      {/* Hero */}
       <section style={{ background: '#0A5440', padding: '5rem 1.5rem 4rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-            Reach us
+            {t.eyebrow}
           </p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 5vw, 3.75rem)', color: '#F5EFE3', lineHeight: 1.1, maxWidth: '22ch', marginBottom: '1.25rem' }}>
-            Get in touch.
+            {t.heroTitle}
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: '1.1rem', maxWidth: '52ch', lineHeight: 1.75 }}>
-            Whether you want to partner, donate, volunteer, or simply learn more — we want to hear from you.
+            {t.heroDesc}
           </p>
         </div>
       </section>
 
-      {/* ── Contact cards ────────────────────────────────────── */}
+      {/* Contact cards */}
       <section style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Contact channels</p>
+          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.channelsEyebrow}</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '2.5rem' }}>
-            Find the right inbox.
+            {t.channelsTitle}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
-            {contactCards.map(({ label, email, desc }) => (
+            {t.contactCards.map(({ label, email, desc }) => (
               <div
                 key={label}
                 style={{
@@ -98,16 +83,16 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Contact form ─────────────────────────────────────── */}
+      {/* Contact form */}
       <section style={{ background: '#ffffff', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'start' }}>
           <div>
-            <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Send a message</p>
+            <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.formEyebrow}</p>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '1.25rem' }}>
-              Contact Form
+              {t.formTitle}
             </h2>
             <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              Fill out the form and we will route your message to the right team. We aim to respond within 2 business days.
+              {t.formDesc}
             </p>
           </div>
 
@@ -117,17 +102,17 @@ export default function ContactPage() {
                 <circle cx="24" cy="24" r="24" fill="#0E6B4F" />
                 <path d="M14 24l7 7L34 16" stroke="#F5EFE3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 style={{ fontFamily: 'var(--font-display)', color: '#15302A', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Message sent.</h3>
-              <p style={{ color: '#6E7F76', fontSize: '0.9rem' }}>Your email client should have opened. We look forward to hearing from you.</p>
+              <h3 style={{ fontFamily: 'var(--font-display)', color: '#15302A', fontSize: '1.25rem', marginBottom: '0.5rem' }}>{t.sentTitle}</h3>
+              <p style={{ color: '#6E7F76', fontSize: '0.9rem' }}>{t.sentDesc}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>Full Name</label>
+                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>{t.formNameLabel}</label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your name"
+                  placeholder={t.formNamePlaceholder}
                   value={form.name}
                   onChange={handleChange}
                   required
@@ -135,11 +120,11 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>Email</label>
+                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>{t.formEmailLabel}</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="your@email.com"
+                  placeholder={t.formEmailPlaceholder}
                   value={form.email}
                   onChange={handleChange}
                   required
@@ -147,18 +132,18 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>Subject</label>
+                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>{t.formSubjectLabel}</label>
                 <select name="subject" value={form.subject} onChange={handleChange} style={inputStyle}>
-                  {subjectOptions.map((opt) => (
+                  {t.subjectOptions.map((opt) => (
                     <option key={opt} value={opt}>{opt}</option>
                   ))}
                 </select>
               </div>
               <div>
-                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>Message</label>
+                <label style={{ display: 'block', color: '#15302A', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.4rem' }}>{t.formMessageLabel}</label>
                 <textarea
                   name="message"
-                  placeholder="Tell us how we can help..."
+                  placeholder={t.formMessagePlaceholder}
                   value={form.message}
                   onChange={handleChange}
                   required
@@ -180,27 +165,27 @@ export default function ContactPage() {
                   fontFamily: 'var(--font-sans)',
                 }}
               >
-                Send Message
+                {t.formSubmit}
               </button>
             </form>
           )}
         </div>
       </section>
 
-      {/* ── Location ─────────────────────────────────────────── */}
+      {/* Location */}
       <section style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
             <div>
-              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Where we are</p>
+              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.locationEyebrow}</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.25rem)', color: '#15302A', marginBottom: '1rem' }}>
-                Location
+                {t.locationTitle}
               </h2>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '1.25rem' }}>
-                Village Health Access operates across West Africa with administrative coordination through our partner network. We do not maintain a single central office — our operations are distributed across the communities we serve.
+                {t.locationP1}
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem' }}>
-                Primary operational countries: Togo, Ghana, Benin, Nigeria, Burkina Faso, Côte d&#39;Ivoire, Senegal.
+                {t.locationP2}
               </p>
             </div>
             {/* Map placeholder */}
@@ -217,7 +202,6 @@ export default function ContactPage() {
                 overflow: 'hidden',
               }}
             >
-              {/* Stylized dots representing countries */}
               {[
                 { top: '38%', left: '42%', label: 'TG' },
                 { top: '32%', left: '36%', label: 'GH' },
@@ -255,19 +239,15 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Social links ─────────────────────────────────────── */}
+      {/* Social links */}
       <section id="privacy" style={{ background: '#15302A', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-display)', color: '#F5EFE3', fontSize: '1.5rem', marginBottom: '0.5rem' }}>Follow our work</h2>
-            <p style={{ color: '#6E7F76', fontSize: '0.88rem', margin: 0 }}>Patient data is never shared publicly. All impact reports are fully anonymized.</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', color: '#F5EFE3', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{t.followTitle}</h2>
+            <p style={{ color: '#6E7F76', fontSize: '0.88rem', margin: 0 }}>{t.privacyNote}</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-            {[
-              { label: 'X (Twitter)', href: 'https://x.com/villagehealthacc' },
-              { label: 'LinkedIn', href: 'https://linkedin.com/company/village-health-access' },
-              { label: 'WhatsApp Contact', href: 'https://wa.me/22800000000' },
-            ].map(({ label, href }) => (
+            {t.socialLinks.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}

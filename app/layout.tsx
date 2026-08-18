@@ -3,6 +3,7 @@ import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
+import Providers from './components/Providers'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -17,7 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Village Health Access — Healthcare for Every Village',
+  title: 'Village Health Access: Healthcare for Every Village',
   description:
     'Village Health Access provides free telemedicine and essential medicine delivery to underserved communities across West Africa. A humanitarian initiative connected to Klinova.',
   keywords: [
@@ -48,9 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${plusJakarta.variable}`}>
       <body className="min-h-screen flex flex-col" style={{ background: '#F5EFE3', color: '#15302A', fontFamily: 'var(--font-sans)' }}>
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <Providers>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

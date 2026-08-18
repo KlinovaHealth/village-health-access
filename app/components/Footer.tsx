@@ -1,23 +1,29 @@
 'use client'
 
 import Link from 'next/link'
-
-const col1 = [
-  { href: '/about', label: 'About Us' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/impact', label: 'Impact' },
-]
-const col2 = [
-  { href: '/partners', label: 'Partners' },
-  { href: '/donors', label: 'Donors' },
-  { href: '/blog', label: 'Blog' },
-]
-const col3 = [
-  { href: '/contact', label: 'Contact' },
-  { href: '/contact#privacy', label: 'Privacy' },
-]
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Footer() {
+  const { lang } = useLanguage()
+  const t = translations[lang].footer
+  const nav = translations[lang].nav
+
+  const col1 = [
+    { href: '/about', label: nav.about },
+    { href: '/programs', label: nav.programs },
+    { href: '/impact', label: nav.impact },
+  ]
+  const col2 = [
+    { href: '/partners', label: nav.partners },
+    { href: '/donors', label: nav.donors },
+    { href: '/blog', label: nav.blog },
+  ]
+  const col3 = [
+    { href: '/contact', label: nav.contact },
+    { href: '/contact#privacy', label: t.privacy },
+  ]
+
   return (
     <footer style={{ background: '#15302A', color: '#F5EFE3' }}>
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '3.5rem 1.5rem 2rem' }}>
@@ -31,17 +37,17 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ fontSize: '0.9rem', color: '#E3EFE8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-              Healthcare for every village.
+              {t.tagline}
             </p>
             <p style={{ fontSize: '0.82rem', color: '#6E7F76', lineHeight: 1.6 }}>
-              A humanitarian nonprofit dedicated to free telemedicine and essential medicine delivery across West Africa.
+              {t.description}
             </p>
           </div>
 
           {/* Nav columns */}
           <div>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#6E7F76', marginBottom: '1rem' }}>
-              Organization
+              {t.orgLabel}
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {col1.map(({ href, label }) => (
@@ -56,7 +62,7 @@ export default function Footer() {
 
           <div>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#6E7F76', marginBottom: '1rem' }}>
-              Community
+              {t.communityLabel}
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {col2.map(({ href, label }) => (
@@ -71,7 +77,7 @@ export default function Footer() {
 
           <div>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#6E7F76', marginBottom: '1rem' }}>
-              More
+              {t.moreLabel}
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {col3.map(({ href, label }) => (
@@ -87,15 +93,15 @@ export default function Footer() {
           {/* Newsletter */}
           <div>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#6E7F76', marginBottom: '1rem' }}>
-              Stay Updated
+              {t.stayUpdatedLabel}
             </p>
             <p style={{ fontSize: '0.85rem', color: '#E3EFE8', marginBottom: '0.75rem', lineHeight: 1.5 }}>
-              Monthly impact updates from the field.
+              {t.newsletterDesc}
             </p>
             <form style={{ display: 'flex', gap: '0.5rem' }} onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder={t.emailPlaceholder}
                 style={{
                   flex: 1,
                   minWidth: 0,
@@ -122,7 +128,7 @@ export default function Footer() {
                   whiteSpace: 'nowrap',
                 }}
               >
-                Subscribe
+                {t.subscribeBtn}
               </button>
             </form>
           </div>
@@ -131,7 +137,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'space-between', alignItems: 'center' }}>
           <p style={{ fontSize: '0.82rem', color: '#6E7F76', margin: 0 }}>
-            &copy; 2026 Village Health Access &middot; In partnership with{' '}
+            &copy; {t.copyright} &middot; {t.partnerCredit}{' '}
             <a
               href="https://klinova.co"
               target="_blank"
@@ -142,7 +148,7 @@ export default function Footer() {
             </a>
           </p>
           <p style={{ fontSize: '0.82rem', color: '#6E7F76', margin: 0 }}>
-            501(c)(3) pending &middot; All donations support direct program delivery
+            {t.legalNote}
           </p>
         </div>
       </div>

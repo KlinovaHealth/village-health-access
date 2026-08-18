@@ -1,105 +1,78 @@
 'use client'
 
 import { useState } from 'react'
-
-const donationTiers = [
-  {
-    amount: '$25',
-    label: '1 Consultation',
-    desc: 'Covers one complete telemedicine consultation — from triage through follow-up — for a patient with no other access to care.',
-    color: '#E3EFE8',
-    textColor: '#15302A',
-  },
-  {
-    amount: '$100',
-    label: '1 Month of Medicine for a Child',
-    desc: 'Funds a full month of essential medicines for a child — malaria treatment, TB care, or nutritional supplements.',
-    color: '#0A5440',
-    textColor: '#F5EFE3',
-  },
-  {
-    amount: '$500',
-    label: '1 Community Health Program',
-    desc: 'Deploys a community health worker in a remote village for one month, reaching dozens of families with education, triage, and referrals.',
-    color: '#E3EFE8',
-    textColor: '#15302A',
-  },
-]
-
-const grantFocusAreas = [
-  'Telemedicine infrastructure expansion',
-  'Community health worker training and deployment',
-  'Essential medicine supply chain',
-  'Maternal and child health programs',
-  'Disease surveillance and public health data',
-  'Multi-country program replication',
-]
-
-const supporters = [
-  { initials: 'KL', name: 'Klinova', type: 'In-kind technology partner' },
-  { initials: 'FF', name: 'Founding Friends Fund', type: 'Individual donors' },
-  { initials: 'WH', name: 'West Health Foundation', type: 'Early-stage funder' },
-]
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 const presetAmounts = ['$25', '$50', '$100', '$250']
 
 export default function DonorsPage() {
   const [selected, setSelected] = useState('$100')
   const [custom, setCustom] = useState('')
+  const { lang } = useLanguage()
+  const t = translations[lang].donors
 
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
+      {/* Hero */}
       <section style={{ background: '#0A5440', padding: '5rem 1.5rem 4rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-            Support our work
+            {t.eyebrow}
           </p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 5vw, 3.75rem)', color: '#F5EFE3', lineHeight: 1.1, maxWidth: '22ch', marginBottom: '1.25rem' }}>
-            Fund healthcare for the unreachable.
+            {t.heroTitle}
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: '1.1rem', maxWidth: '52ch', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-            Village Health Access is a nonprofit organization working toward 501(c)(3) status. Your donation supports free telemedicine and essential medicines for communities across West Africa.
+            {t.heroDesc}
           </p>
           <p style={{ color: '#D99A2B', fontSize: '0.85rem', fontStyle: 'italic' }}>
-            501(c)(3) pending — please consult your tax advisor regarding deductibility.
+            {t.taxNote}
           </p>
         </div>
       </section>
 
-      {/* ── Impact of donation ───────────────────────────────── */}
+      {/* Impact of donation */}
       <section style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>What your gift does</p>
+          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.impactEyebrow}</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '2.5rem' }}>
-            Impact of your donation.
+            {t.impactTitle}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
-            {donationTiers.map(({ amount, label, desc, color, textColor }) => (
-              <div
-                key={amount}
-                style={{
-                  background: color,
-                  borderRadius: '1rem',
-                  padding: '2rem',
-                  border: '1px solid #E7DECC',
-                }}
-              >
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', color: '#D99A2B', fontWeight: 700, margin: '0 0 0.25rem' }}>{amount}</p>
-                <p style={{ color: textColor, fontWeight: 700, fontSize: '1rem', marginBottom: '0.75rem' }}>{label}</p>
-                <p style={{ color: textColor === '#F5EFE3' ? 'rgba(245,239,227,0.8)' : '#6E7F76', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>{desc}</p>
-              </div>
-            ))}
+            {t.donationTiers.map(({ amount, label, desc }, i) => {
+              const colors = [
+                { color: '#E3EFE8', textColor: '#15302A' },
+                { color: '#0A5440', textColor: '#F5EFE3' },
+                { color: '#E3EFE8', textColor: '#15302A' },
+              ]
+              const { color, textColor } = colors[i]
+              return (
+                <div
+                  key={amount}
+                  style={{
+                    background: color,
+                    borderRadius: '1rem',
+                    padding: '2rem',
+                    border: '1px solid #E7DECC',
+                  }}
+                >
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', color: '#D99A2B', fontWeight: 700, margin: '0 0 0.25rem' }}>{amount}</p>
+                  <p style={{ color: textColor, fontWeight: 700, fontSize: '1rem', marginBottom: '0.75rem' }}>{label}</p>
+                  <p style={{ color: textColor === '#F5EFE3' ? 'rgba(245,239,227,0.8)' : '#6E7F76', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>{desc}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Donate now ───────────────────────────────────────── */}
+      {/* Donate now */}
       <section style={{ background: '#ffffff', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '42rem', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Donate now</p>
+          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.donateEyebrow}</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '2rem' }}>
-            Choose your contribution.
+            {t.chooseContribution}
           </h2>
 
           {/* Amount selector */}
@@ -128,7 +101,7 @@ export default function DonorsPage() {
 
           {/* Custom amount */}
           <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#6E7F76', fontSize: '0.9rem' }}>Custom:</span>
+            <span style={{ color: '#6E7F76', fontSize: '0.9rem' }}>{t.customLabel}</span>
             <div style={{ position: 'relative' }}>
               <span style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: '#6E7F76' }}>$</span>
               <input
@@ -168,35 +141,35 @@ export default function DonorsPage() {
             }}
             onClick={() => alert('Donation processing coming soon. Thank you for your interest in supporting Village Health Access.')}
           >
-            Donate {custom ? `$${custom}` : selected}
+            {t.donateBtnPrefix} {custom ? `$${custom}` : selected}
           </button>
 
           <div style={{ background: '#E3EFE8', borderRadius: '0.625rem', padding: '1rem 1.5rem', textAlign: 'left' }}>
             <p style={{ color: '#0A5440', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
-              Secure donation processing will be enabled once our 501(c)(3) application is approved. For now, please{' '}
+              {t.processingNote}
               <a href="mailto:contact@villagehealthaccess.org" style={{ color: '#0A5440', fontWeight: 700, textDecoration: 'underline' }}>
-                contact us
-              </a>{' '}
-              to arrange a direct donation. We will provide full receipt documentation.
+                {t.contactUs}
+              </a>
+              {t.processingNote2}
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Grant opportunities ──────────────────────────────── */}
+      {/* Grant opportunities */}
       <section id="grants" style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'start' }}>
             <div>
-              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Institutional donors</p>
+              <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.grantEyebrow}</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '1.25rem' }}>
-                Grant Opportunities
+                {t.grantTitle}
               </h2>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '1.25rem' }}>
-                Village Health Access welcomes grant proposals from major foundations, bilateral donors, multilateral agencies, and impact investors. We can provide detailed program plans, budget breakdowns, monitoring frameworks, and impact measurement protocols.
+                {t.grantP1}
               </p>
               <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '2rem' }}>
-                We accept restricted funding for specific programs and unrestricted general operating support.
+                {t.grantP2}
               </p>
               <a
                 href="mailto:contact@villagehealthaccess.org?subject=Grant%20Information%20Request"
@@ -211,13 +184,13 @@ export default function DonorsPage() {
                   textDecoration: 'none',
                 }}
               >
-                Request Grant Information
+                {t.requestGrant}
               </a>
             </div>
             <div>
-              <p style={{ color: '#15302A', fontWeight: 700, fontSize: '0.9rem', marginBottom: '1rem' }}>Areas eligible for restricted funding:</p>
+              <p style={{ color: '#15302A', fontWeight: 700, fontSize: '0.9rem', marginBottom: '1rem' }}>{t.grantAreasTitle}</p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {grantFocusAreas.map((area) => (
+                {t.grantAreas.map((area) => (
                   <li key={area} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0, marginTop: '2px' }} aria-hidden="true">
                       <path d="M3 9l4 4L15 5" stroke="#0E6B4F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -231,15 +204,15 @@ export default function DonorsPage() {
         </div>
       </section>
 
-      {/* ── Current supporters ───────────────────────────────── */}
+      {/* Current supporters */}
       <section style={{ background: '#ffffff', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>With gratitude</p>
+          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{t.supportersEyebrow}</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '2.5rem' }}>
-            Current Supporters
+            {t.supportersTitle}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-            {supporters.map(({ initials, name, type }) => (
+            {t.supporters.map(({ initials, name, type }) => (
               <div
                 key={name}
                 style={{
@@ -279,23 +252,19 @@ export default function DonorsPage() {
         </div>
       </section>
 
-      {/* ── Transparency ─────────────────────────────────────── */}
+      {/* Transparency */}
       <section style={{ background: '#0A5440', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', alignItems: 'center' }}>
             <div>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE3', marginBottom: '0.75rem' }}>
-                Financial Transparency
+                {t.transparencyTitle}
               </h2>
               <p style={{ color: '#E3EFE8', fontSize: '0.95rem', lineHeight: 1.75 }}>
-                We are committed to best-in-class nonprofit governance. Our overhead ratio target is under 15%, meaning 85 cents of every dollar goes directly to program delivery. Full financial statements are available on request.
+                {t.transparencyDesc}
               </p>
             </div>
-            {[
-              { value: '<15%', label: 'Overhead ratio target' },
-              { value: '85%+', label: 'Directed to programs' },
-              { value: '100%', label: 'Financial reporting published' },
-            ].map(({ value, label }) => (
+            {t.transparencyStats.map(({ value, label }) => (
               <div key={label} style={{ textAlign: 'center' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: '#D99A2B', fontWeight: 700, margin: 0 }}>{value}</p>
                 <p style={{ color: '#E3EFE8', fontSize: '0.85rem', margin: '0.35rem 0 0' }}>{label}</p>

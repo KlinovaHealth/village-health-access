@@ -3,21 +3,25 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
-const navLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/impact', label: 'Impact' },
-  { href: '/partners', label: 'Partners' },
-  { href: '/donors', label: 'Donors' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-]
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Nav() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { lang, toggle } = useLanguage()
+  const t = translations[lang].nav
+
+  const navLinks = [
+    { href: '/about', label: t.about },
+    { href: '/programs', label: t.programs },
+    { href: '/impact', label: t.impact },
+    { href: '/partners', label: t.partners },
+    { href: '/donors', label: t.donors },
+    { href: '/blog', label: t.blog },
+    { href: '/contact', label: t.contact },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -109,10 +113,31 @@ export default function Nav() {
               </Link>
             )
           })}
+          {/* Language toggle */}
+          <button
+            onClick={toggle}
+            aria-label={lang === 'en' ? 'Switch to French' : 'Passer en anglais'}
+            style={{
+              marginLeft: '0.25rem',
+              padding: '0.35rem 0.65rem',
+              background: 'none',
+              border: '1.5px solid #0A5440',
+              color: '#0A5440',
+              fontWeight: 700,
+              fontSize: '0.78rem',
+              borderRadius: '0.375rem',
+              cursor: 'pointer',
+              letterSpacing: '0.04em',
+              fontFamily: 'var(--font-sans)',
+              transition: 'background 0.15s, color 0.15s',
+            }}
+          >
+            {t.toggleLang}
+          </button>
           <Link
             href="/donors"
             style={{
-              marginLeft: '0.5rem',
+              marginLeft: '0.25rem',
               padding: '0.5rem 1.2rem',
               background: '#D99A2B',
               color: '#15302A',
@@ -123,7 +148,7 @@ export default function Nav() {
               transition: 'opacity 0.15s',
             }}
           >
-            Donate
+            {t.donate}
           </Link>
         </nav>
 
@@ -174,23 +199,43 @@ export default function Nav() {
               </Link>
             )
           })}
-          <Link
-            href="/donors"
-            style={{
-              display: 'block',
-              marginTop: '1rem',
-              padding: '0.75rem 1.5rem',
-              background: '#D99A2B',
-              color: '#15302A',
-              fontWeight: 700,
-              fontSize: '1rem',
-              borderRadius: '2rem',
-              textAlign: 'center',
-              textDecoration: 'none',
-            }}
-          >
-            Donate
-          </Link>
+          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
+            <button
+              onClick={toggle}
+              aria-label={lang === 'en' ? 'Switch to French' : 'Passer en anglais'}
+              style={{
+                flex: 1,
+                padding: '0.75rem',
+                background: 'none',
+                border: '1.5px solid #0A5440',
+                color: '#0A5440',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                borderRadius: '2rem',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-sans)',
+              }}
+            >
+              {t.toggleLang}
+            </button>
+            <Link
+              href="/donors"
+              style={{
+                flex: 2,
+                padding: '0.75rem 1.5rem',
+                background: '#D99A2B',
+                color: '#15302A',
+                fontWeight: 700,
+                fontSize: '1rem',
+                borderRadius: '2rem',
+                textAlign: 'center',
+                textDecoration: 'none',
+                display: 'block',
+              }}
+            >
+              {t.donate}
+            </Link>
+          </div>
         </div>
       )}
     </header>
