@@ -78,6 +78,21 @@ const programs = [
     desc: 'Formal partnerships with ministries of health for disease tracking, public health data reporting, and scaling community health programs through official channels.',
     href: '/programs#government',
   },
+  {
+    icon: (
+      <svg width="40" height="40" fill="none" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="12" fill="#0A5440" />
+        <rect x="17" y="9" width="6" height="14" rx="2" stroke="#F5EFE3" strokeWidth="1.8" />
+        <line x1="20" y1="23" x2="20" y2="30" stroke="#D99A2B" strokeWidth="2" strokeLinecap="round" />
+        <line x1="20" y1="9" x2="20" y2="6" stroke="#F5EFE3" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="15" cy="32" r="1.5" fill="#D99A2B" />
+        <circle cx="25" cy="31" r="1" fill="#D99A2B" opacity="0.6" />
+      </svg>
+    ),
+    title: 'Cholera Response & Vaccines',
+    desc: 'Active cholera outbreak response, oral rehydration therapy, and last-mile vaccine delivery for meningitis, yellow fever, and childhood immunization in Togo.',
+    href: '/programs#cholera-vaccines',
+  },
 ]
 
 const impactNumbers = [
@@ -213,7 +228,7 @@ export default function HomePage() {
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>What we do</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.75rem)', color: '#15302A', marginBottom: '3rem', maxWidth: '28ch' }}>
-            Three programs, one goal: accessible healthcare.
+            Four programs, one goal: accessible healthcare.
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
             {programs.map(({ icon, title, desc, href }) => (

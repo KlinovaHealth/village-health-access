@@ -40,7 +40,7 @@ export default function ProgramsPage() {
             Programs built for the communities that need them most.
           </h1>
           <p style={{ color: '#E3EFE8', fontSize: '1.1rem', maxWidth: '52ch', lineHeight: 1.75 }}>
-            Three interconnected programs targeting the root barriers to healthcare access across West Africa: distance, cost, and systemic disconnection.
+            Four interconnected programs targeting the root barriers to healthcare access across West Africa: distance, cost, systemic disconnection, and preventable disease.
           </p>
         </div>
       </section>
@@ -223,6 +223,64 @@ export default function ProgramsPage() {
               >
                 View Impact Dashboard
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Program 4: Cholera & Vaccines ───────────────────── */}
+      <section id="cholera-vaccines" style={{ background: '#F5EFE3', padding: '5rem 1.5rem' }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <svg width="44" height="44" fill="none" viewBox="0 0 44 44" aria-hidden="true">
+                  <rect width="44" height="44" rx="13" fill="#0A5440" />
+                  {/* Syringe body */}
+                  <rect x="20" y="10" width="5" height="14" rx="1.5" stroke="#F5EFE3" strokeWidth="1.8" />
+                  {/* Needle */}
+                  <line x1="22.5" y1="24" x2="22.5" y2="30" stroke="#D99A2B" strokeWidth="2" strokeLinecap="round" />
+                  {/* Plunger */}
+                  <line x1="22.5" y1="10" x2="22.5" y2="7" stroke="#F5EFE3" strokeWidth="2" strokeLinecap="round" />
+                  {/* Drops */}
+                  <circle cx="17" cy="32" r="1.5" fill="#D99A2B" />
+                  <circle cx="28" cy="30" r="1" fill="#D99A2B" opacity="0.6" />
+                </svg>
+                <span style={{ color: '#0A5440', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Program 4</span>
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '1.25rem' }}>
+                Combating Cholera &amp; Delivering Vaccines
+              </h2>
+              <p style={{ color: '#15302A', lineHeight: 1.8, marginBottom: '1rem', fontSize: '0.97rem' }}>
+                Cholera remains one of the deadliest and most preventable diseases in West Africa, killing thousands every year in communities with limited access to clean water and healthcare. Village Health Access runs active cholera response and prevention programs in Togo, combining oral rehydration therapy, water sanitation education, and rapid community health worker deployment during outbreaks.
+              </p>
+              <p style={{ color: '#6E7F76', lineHeight: 1.8, marginBottom: '1rem', fontSize: '0.97rem' }}>
+                Alongside cholera response, we coordinate last-mile vaccine delivery for cholera, meningitis, yellow fever, and childhood immunization schedules. Vaccines are sourced through WHO-prequalified supply chains and delivered by trained community health workers — including to nomadic populations, refugee camps, and villages with no fixed health facility.
+              </p>
+              <p style={{ color: '#6E7F76', lineHeight: 1.8, fontSize: '0.97rem' }}>
+                All outbreak data is logged through Klinova&#39;s Invisible Grid and shared in real time with the Togo Ministry of Health, enabling faster government response and reducing preventable deaths.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {[
+                { value: 'Cholera', label: 'Primary Disease Focus', sub: 'Oral rehydration, sanitation education, outbreak response' },
+                { value: '4 Vaccines', label: 'Immunization Programs', sub: 'Cholera · Meningitis · Yellow Fever · Childhood schedule' },
+                { value: 'Real-time', label: 'Outbreak Reporting', sub: 'Logged via Klinova\'s Invisible Grid, shared with Ministry of Health' },
+              ].map(({ value, label, sub }) => (
+                <div
+                  key={label}
+                  style={{
+                    background: '#ffffff',
+                    borderRadius: '0.875rem',
+                    padding: '1.5rem',
+                    border: '1px solid #E7DECC',
+                  }}
+                >
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: '#D99A2B', fontWeight: 700, margin: 0 }}>{value}</p>
+                  <p style={{ color: '#15302A', fontWeight: 600, fontSize: '0.9rem', margin: '0.2rem 0 0' }}>{label}</p>
+                  <p style={{ color: '#6E7F76', fontSize: '0.82rem', margin: '0.15rem 0 0' }}>{sub}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
