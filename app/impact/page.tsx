@@ -10,13 +10,13 @@ const keyStats = [
 ]
 
 const countries = [
-  { name: 'Togo', pct: 100, note: 'Active now — primary country of operations, launched 2026' },
-  { name: 'Ghana', pct: 60, note: 'Planned expansion, conversations with Ghana Health Service underway' },
-  { name: 'Benin', pct: 40, note: 'Planned expansion, outreach to Ministry of Health in progress' },
-  { name: 'Nigeria', pct: 25, note: 'Future target, urban and semi-rural outreach planned' },
-  { name: 'Burkina Faso', pct: 20, note: 'Future target, refugee population focus' },
-  { name: 'Côte d\'Ivoire', pct: 15, note: 'Future target, 2028 expansion roadmap' },
-  { name: 'Senegal', pct: 10, note: 'Future target, 2029 expansion roadmap' },
+  { name: 'Togo', active: true,  note: 'Active — primary country of operations, launched 2026' },
+  { name: 'Ghana', active: false, note: 'Upcoming — conversations with Ghana Health Service underway' },
+  { name: 'Benin', active: false, note: 'Upcoming — outreach to Ministry of Health in progress' },
+  { name: 'Nigeria', active: false, note: 'Upcoming — urban and semi-rural outreach planned' },
+  { name: 'Burkina Faso', active: false, note: 'Upcoming — refugee population focus' },
+  { name: 'Côte d\'Ivoire', active: false, note: 'Upcoming — 2028 expansion roadmap' },
+  { name: 'Senegal', active: false, note: 'Upcoming — 2029 expansion roadmap' },
 ]
 
 const diseaseCategories = [
@@ -75,30 +75,39 @@ export default function ImpactPage() {
       {/* ── Country Coverage ─────────────────────────────────── */}
       <section style={{ background: '#ffffff', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
-          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Where we work</p>
+          <p style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Where we work and where we are going</p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#15302A', marginBottom: '0.75rem' }}>
-            Country Coverage
+            Country Expansion Roadmap
           </h2>
           <p style={{ color: '#6E7F76', fontSize: '0.95rem', marginBottom: '2.5rem' }}>
-            Expansion roadmap relative to Togo (our active country). All others are planned targets, not current operations.
+            Togo is our only active country of operations. All other countries are upcoming targets on our 2030 expansion roadmap.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxWidth: '54rem' }}>
-            {countries.map(({ name, pct, note }) => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '54rem' }}>
+            {countries.map(({ name, active, note }) => (
               <div key={name}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.4rem' }}>
-                  <span style={{ fontWeight: 700, color: '#15302A', fontSize: '0.95rem' }}>{name}</span>
-                  <span style={{ color: '#D99A2B', fontWeight: 700, fontSize: '0.9rem' }}>{pct}%</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ fontWeight: 700, color: '#15302A', fontSize: '0.95rem' }}>{name}</span>
+                    <span style={{
+                      fontSize: '0.68rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.07em',
+                      textTransform: 'uppercase',
+                      padding: '0.15rem 0.55rem',
+                      borderRadius: '2rem',
+                      background: active ? '#0A5440' : '#E7DECC',
+                      color: active ? '#F5EFE3' : '#6E7F76',
+                    }}>
+                      {active ? 'Active' : 'Upcoming'}
+                    </span>
+                  </div>
                 </div>
-                <div style={{ background: '#E7DECC', borderRadius: '1rem', height: '10px', overflow: 'hidden', marginBottom: '0.3rem' }}>
-                  <div
-                    style={{
-                      background: 'linear-gradient(90deg, #0E6B4F 0%, #0A5440 100%)',
-                      height: '100%',
-                      width: `${pct}%`,
-                      borderRadius: '1rem',
-                      transition: 'width 0.3s',
-                    }}
-                  />
+                <div style={{ background: '#E7DECC', borderRadius: '1rem', height: '10px', overflow: 'hidden', marginBottom: '0.35rem' }}>
+                  {active ? (
+                    <div style={{ background: 'linear-gradient(90deg, #0E6B4F 0%, #0A5440 100%)', height: '100%', width: '100%', borderRadius: '1rem' }} />
+                  ) : (
+                    <div style={{ background: 'repeating-linear-gradient(90deg, #D99A2B 0px, #D99A2B 12px, transparent 12px, transparent 20px)', height: '100%', width: '40%', borderRadius: '1rem', opacity: 0.5 }} />
+                  )}
                 </div>
                 <p style={{ color: '#6E7F76', fontSize: '0.8rem', margin: 0 }}>{note}</p>
               </div>
